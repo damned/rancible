@@ -1,5 +1,2 @@
-require "rancible/version"
-
-module Rancible
-  # Your code goes here...
-end
+require 'rancible/version'
+require_relative 'rancible/dsl'
