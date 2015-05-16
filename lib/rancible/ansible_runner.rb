@@ -7,7 +7,10 @@ module Rancible
     def run(command, args)
       host = params[:host]
       path = args[:path]
-      output = `ANSIBLE_HOST_KEY_CHECKING=False ansible #{host} --inventory-file=hosts -m stat -a 'path=#{path}' --private-key=.vagrant/machines/ubuntuvm/virtualbox/private_key --user=vagrant -vvv`
+
+      argstring = args.keys.map {|key| "#{key}=#{args[key]}" }.join(' ')
+      puts "args: #{argstring}"
+      output = `ANSIBLE_HOST_KEY_CHECKING=False ansible #{host} --inventory-file=hosts -m #{command} -a '#{argstring}' --private-key=.vagrant/machines/ubuntuvm/virtualbox/private_key --user=vagrant -vvv`
     end
 
     private

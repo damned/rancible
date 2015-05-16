@@ -6,8 +6,17 @@ module Rancible
     def initialize(params)
       @params = params
     end
+    def copy(args)
+      run :copy, args
+    end
     def stat(args)
-      AnsibleResult.new(AnsibleRunner.new(@params).run :stat, args)
+      run :stat, args
+    end
+
+    private
+
+    def run(command, args)
+      AnsibleResult.new(AnsibleRunner.new(@params).run command, args)
     end
   end
 

@@ -15,5 +15,12 @@ module Rancible
 
       expect(result.success?).to eq false
     end
+
+    it 'exposes result data as methods' do
+      result = AnsibleResult.new('host | success >> { "changed": false, "dest": "somedest" }')
+
+      expect(result.changed).to eq false
+      expect(result.dest).to eq 'somedest'
+    end
   end
 end
