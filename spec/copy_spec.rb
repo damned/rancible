@@ -5,7 +5,6 @@ describe 'rancible' do
   include_context :test_host
   include Rancible::Dsl
 
-
   it 'can execute an ansible copy' do
     destination_file = '/tmp/somefile'
     test_content = 'some-content'
