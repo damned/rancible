@@ -6,7 +6,7 @@ TEST_HOSTS = {
   'local' => LocalTestHost.new,
   'vm' => VmTestHost.new,
 }
-DEFAULT = TEST_HOSTS['vm']
+DEFAULT = TEST_HOSTS['local']
 
 def determine_test_host
   override = ENV['TEST_HOST']
