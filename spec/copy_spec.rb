@@ -2,7 +2,7 @@ require 'spec_helper'
 require_relative '../lib/rancible'
 
 describe 'rancible' do
-  include_context :test_vm
+  include_context :test_host
   include Rancible::Dsl
 
 
@@ -12,7 +12,7 @@ describe 'rancible' do
 
     result = nil
 
-    rancible(host: vm_name) do
+    rancible(host: test_host_name) do
       result = copy content: test_content, dest: destination_file
     end
 

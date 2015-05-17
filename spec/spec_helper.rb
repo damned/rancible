@@ -1,2 +1,2 @@
 require 'rspec'
-require_relative 'test_vm'
+require_relative 'test_host'
