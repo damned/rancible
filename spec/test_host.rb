@@ -1,15 +1,17 @@
 require 'rspec'
+require_relative 'support/test_hosts/vm_test_host'
 
 shared_context :test_host do
+  def test_host
+    VmTestHost.new
+  end
   def test_host_name
-    'ubuntuvm'
+    test_host.name
   end
   def test_ssh_key
-    '.vagrant/machines/ubuntuvm/virtualbox/private_key'
+    test_host.ssh_key
   end
   before(:all) {
-    unless `vagrant status #{test_host_name}`.include?('running')
-      system "vagrant up #{test_host_name}"
-    end
+    test_host.before_all self
   }
 end
