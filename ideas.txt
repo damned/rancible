@@ -1,0 +1,3 @@
+todo:
+
+ - keep DSL flat so that e.g. setting host applies from that moment on: simplify scoping
