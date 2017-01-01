@@ -1,0 +1,50 @@
+why
+
+things i don't like:
+ - bash scripting. cos it degenerates over time.
+ - installing prerequisites. cos there's a bootstrap problem.
+ - stuff we can't test. cos it will cause pain.
+ - scripting in data formats. cos it will degrade and not scale.
+ - new scripting languages for domain-specific jobs. because they will (i) take time to learn; and (ii) be rubbish (further whys available :/)
+ - basically, not using first class languages. see above.
+ - not applying well-worn programming learnings to deployment programs. am i mad?
+ - complex acyclic-dependency tracking in a multi-authority world.
+ - package creation. fpm looks better but still...
+ - bundler's selective state retention confuseration. another story...
+
+things i do like:
+ - automation
+ - testability
+ - ansible's desire to minimise pre-requisites
+ - chef's abilty to build abstractions
+ - ssh and scp
+ - package managers at an interface level
+ - the 'porcelain and plumbing' concept
+ - push deployments over pull
+
+things i do on my current project:
+ - ruby
+ - cloud deployment
+
+exposition:
+
+the mistake ansible makes:
+
+puppet was a huge success because it caught on and users started to automate setup of their servers.
+
+however puppet was also a programmatic disaster, because writing a new language to provide domain-specific functionality is a minefield:
+ - usually it's replaceable by a first-class language and a library (internal dsl)
+ - you spend time on language design rather than tool design or implementation
+ - the new language will be immature, and thereby somewhat over-complex and clunky - if it isn't you should be writing a new language, not a tool !
+
+ansible tries to move on, so doesn't design a new language... in terms of syntax only :/ it falls into the same pitfall of the highly successful ant java build tool: use a consistent data format to write pseudo-code that degenerates when you end up needing logic and abstraction.
+
+ok, rant:
+
+and umm, what is the fact(er) obessession?
+all the cute examples rely on the underlying package manager doing all the work:
+ - deployer: look at me!
+ - package manager: erm, well i actually sorted that out...
+
+the learning being, the deployer should be simple
+
